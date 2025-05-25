@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Jello"
 include(":app")
 include(":feature:auth")
+include(":core:ui")
