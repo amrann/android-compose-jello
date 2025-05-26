@@ -1,4 +1,4 @@
-package com.compose.jello.ui.theme
+package com.compose.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
