@@ -14,18 +14,17 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun JelloImgViewClick(
-//  modifier: Modifier = Modifier.size(24.dp),
   modifier: Modifier = Modifier,
   onClick: () -> Unit = {},
   color: Color = Color.Black,
   imageVector: ImageVector = Icons.AutoMirrored.Filled.ArrowBack,
   imageDescription: String = "Back",
 ) {
-  IconButton(onClick = { onClick }) {
+  IconButton(onClick = { onClick() }) {
     Icon(
       imageVector = imageVector,
       contentDescription = imageDescription,
-      modifier = modifier,
+      modifier = modifier.size(24.dp),
       tint = color
     )
   }
