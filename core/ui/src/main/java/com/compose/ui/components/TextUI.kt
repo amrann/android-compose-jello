@@ -50,7 +50,7 @@ fun JelloTextHeaderPreview() {
 }
 
 @Composable
-fun JelloTextWithClick (
+fun JelloTextWithClick(
   modifier: Modifier = Modifier,
   text: String = "Please fill email & password to login your app account.",
   textClick: String = " Sign Up",
@@ -97,4 +97,29 @@ fun JelloTextWithClick (
 @Composable
 fun JelloTextWithClickPreview() {
   JelloTextWithClick()
+}
+
+@Composable
+fun JelloTextRegular(
+  modifier: Modifier = Modifier,
+  text: String = "E-mail",
+  color: Color = Color.Black
+) {
+  Text(
+    text = text,
+    modifier = modifier.padding(16.dp),
+    style = TextStyle(
+      fontSize = 14.sp,
+      fontWeight = FontWeight.Normal,
+      lineHeight = 16.sp,
+      textAlign = TextAlign.Left
+    ),
+    color = color
+  )
+}
+
+@Preview
+@Composable
+fun JelloTextRegularPreview() {
+  JelloTextRegular()
 }
