@@ -12,3 +12,4 @@ val Pink40 = Color(0xFF7D5260)
 
 val VividMagenta = Color(0xFFB620E0)
 val VeryLightGray = Color(0xFFDCDCDC)
+val StrongGreen = Color(0xFF6DD400)

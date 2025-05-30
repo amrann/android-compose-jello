@@ -1,9 +1,13 @@
 package com.compose.ui.components
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.SpanStyle
@@ -123,3 +127,53 @@ fun JelloTextRegular(
 fun JelloTextRegularPreview() {
   JelloTextRegular()
 }
+
+@Composable
+fun JelloTextViewRow(
+  checked: Boolean = false,
+  onCheckedChange: (Boolean) -> Unit = {},
+  onTextClick: () -> Unit = {},
+  textLeft: String = "Remember me",
+  textRight: String = "Forgot password?"
+) {
+  Row(
+    modifier = Modifier
+      .padding(16.dp)
+      .fillMaxWidth(),
+    horizontalArrangement = Arrangement.SpaceBetween,
+    verticalAlignment = Alignment.CenterVertically
+  ) {
+    JelloCheckbox(
+      checked = checked,
+      onCheckedChange = onCheckedChange,
+      label = textLeft,
+      modifier = Modifier
+        .padding(vertical = 8.dp)
+        .weight(1f)
+    )
+    val anotatedString = buildAnnotatedString {
+      append(textRight)
+    }
+    ClickableText(
+      text = anotatedString,
+      modifier = Modifier.padding(vertical = 8.dp),
+      style = TextStyle(
+        fontSize = 12.sp,
+        fontWeight = FontWeight.Normal,
+        lineHeight = 14.sp,
+        textAlign = TextAlign.Left
+      ),
+      onClick = {
+        onTextClick()
+      }
+    )
+  }
+
+}
+
+@Preview
+@Composable
+fun JelloTextViewRowPreview() {
+  JelloTextViewRow()
+}
+
