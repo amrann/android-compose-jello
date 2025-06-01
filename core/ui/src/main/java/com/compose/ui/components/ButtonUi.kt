@@ -1,5 +1,7 @@
 package com.compose.ui.components
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -54,7 +56,7 @@ fun JelloButtonFacebook(
     enabled = true,
     modifier = modifier
       .fillMaxWidth()
-      .padding(16.dp)
+      .padding(8.dp)
       .height(56.dp),
     colorBtn = ButtonDefaults.buttonColors(
       containerColor = ModerateBlue,
@@ -83,7 +85,7 @@ fun JelloButtonGoogle(
     enabled = true,
     modifier = modifier
       .fillMaxWidth()
-      .padding(16.dp)
+      .padding(8.dp)
       .height(56.dp),
     colorBtn = ButtonDefaults.buttonColors(
       containerColor = VividRed,
@@ -98,4 +100,37 @@ fun JelloButtonGoogle(
 @Composable
 fun JelloButtonGooglePreview() {
   JelloButtonGoogle()
+}
+
+@Composable
+fun JelloButtonSosmedRow(
+  modifier: Modifier = Modifier,
+  onClickGoogle: () -> Unit = {},
+  onClickFacebook: () -> Unit = {},
+) {
+  Row(
+    modifier = modifier
+      .fillMaxWidth()
+      .padding(8.dp),
+    horizontalArrangement = Arrangement.spacedBy(16.dp)
+  ) {
+
+    JelloButtonGoogle(
+      modifier = modifier
+        .weight(1f),
+      onClick = onClickGoogle
+    )
+
+    JelloButtonFacebook(
+      modifier = modifier
+        .weight(1f),
+      onClick = onClickFacebook
+    )
+  }
+}
+
+@Preview
+@Composable
+fun JelloButtonSosmedRowPreview() {
+  JelloButtonSosmedRow()
 }
