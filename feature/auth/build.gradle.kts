@@ -54,4 +54,7 @@ dependencies {
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
   debugImplementation(libs.ui.tooling)
+
+  // Dagger Hilt
+  implementation(libs.androidx.hilt.navigation.compose)
 }
