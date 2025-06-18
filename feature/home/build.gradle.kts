@@ -1,29 +1,23 @@
 plugins {
-  alias(libs.plugins.android.application)
+  alias(libs.plugins.android.library)
   alias(libs.plugins.kotlin.android)
 }
 
 android {
-  namespace = "com.compose.jello"
+  namespace = "com.compose.home"
   compileSdk = 35
 
   defaultConfig {
-    applicationId = "com.compose.jello"
     minSdk = 24
-    targetSdk = 35
-    versionCode = 1
-    versionName = "1.0"
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    consumerProguardFiles("consumer-rules.pro")
   }
 
   buildTypes {
     release {
       isMinifyEnabled = false
-      proguardFiles(
-        getDefaultProguardFile("proguard-android-optimize.txt"),
-        "proguard-rules.pro"
-      )
+      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
   }
   compileOptions {
@@ -42,9 +36,7 @@ android {
 }
 
 dependencies {
-  // Module
-  implementation(project(":feature:auth"))
-  implementation(project(":feature:home"))
+  implementation(project(":core:ui"))
 
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -54,11 +46,10 @@ dependencies {
   implementation(libs.androidx.ui.graphics)
   implementation(libs.androidx.ui.tooling.preview)
   implementation(libs.androidx.material3)
-  testImplementation(libs.junit)
-  androidTestImplementation(libs.androidx.junit)
-  androidTestImplementation(libs.androidx.espresso.core)
-  androidTestImplementation(platform(libs.androidx.compose.bom))
-  androidTestImplementation(libs.androidx.ui.test.junit4)
-  debugImplementation(libs.androidx.ui.tooling)
-  debugImplementation(libs.androidx.ui.test.manifest)
+
+//  implementation("androidx.compose.material:material:1.6.8")
+  implementation(libs.androidx.compose.material)
+
+  // Dagger Hilt
+  implementation(libs.androidx.hilt.navigation.compose)
 }
