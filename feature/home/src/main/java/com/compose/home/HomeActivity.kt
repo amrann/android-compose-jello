@@ -1,10 +1,11 @@
-package com.compose.home.ui
+package com.compose.home
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.compose.setContent
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.Surface
+import com.compose.home.ui.MainScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
