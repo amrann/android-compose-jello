@@ -51,4 +51,7 @@ dependencies {
   androidTestImplementation(libs.androidx.junit)
   androidTestImplementation(libs.androidx.espresso.core)
   debugImplementation(libs.ui.tooling)
+
+  implementation(libs.accompanist.pager)
+  implementation(libs.accompanist.pager.indicators)
 }
