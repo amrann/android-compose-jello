@@ -11,6 +11,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.Image
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -18,6 +20,9 @@ import com.compose.ui.R
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.yield
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
@@ -26,6 +31,7 @@ fun JelloBannerSliderUi(
   onClick : (Int) -> Unit
 ) {
   val pagerState = rememberPagerState()
+  val scope = rememberCoroutineScope()
   Column {
     HorizontalPager(
       count = bannerImage.size,
@@ -51,6 +57,17 @@ fun JelloBannerSliderUi(
       }
     }
   }
+
+  LaunchedEffect(pagerState) {
+    while (true) {
+      yield()
+      delay(2000)
+      scope.launch {
+        val nextPage = (pagerState.currentPage + 1) % (bannerImage.size)
+        pagerState.animateScrollToPage(nextPage)
+      }
+    }
+  }
 }
 
 @Preview
@@ -59,9 +76,10 @@ fun JelloBannerSliderUiPreview() {
   val images = listOf(
     painterResource(id = R.drawable.sample_slide1),
     painterResource(id = R.drawable.sample_slide1),
-    painterResource(id = R.drawable.sample_slide1))
-    JelloBannerSliderUi(
-        bannerImage = images,
-        onClick = {}
-    )
+    painterResource(id = R.drawable.sample_slide1)
+  )
+  JelloBannerSliderUi(
+      bannerImage = images,
+      onClick = {}
+  )
 }

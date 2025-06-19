@@ -15,9 +15,12 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.compose.ui.R
+import com.compose.ui.components.JelloBannerSliderUi
 import com.compose.ui.components.JelloImgViewClick
 import com.compose.ui.components.JelloTextRegular
 import com.compose.ui.theme.StrongBlue
@@ -66,6 +69,15 @@ fun HomeScreen() {
         onClick = {}
       )
     }
+    val images = listOf(
+      painterResource(id = R.drawable.sample_slide1),
+      painterResource(id = R.drawable.sample_slide1),
+      painterResource(id = R.drawable.sample_slide1)
+    )
+    JelloBannerSliderUi(
+      bannerImage = images,
+      onClick = {}
+    )
   }
 }
 
