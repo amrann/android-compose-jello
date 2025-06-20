@@ -111,7 +111,7 @@ fun JelloTextRegular(
 ) {
   Text(
     text = text,
-    modifier = modifier.padding(16.dp),
+    modifier = modifier,
     style = TextStyle(
       fontSize = 14.sp,
       fontWeight = FontWeight.Normal,

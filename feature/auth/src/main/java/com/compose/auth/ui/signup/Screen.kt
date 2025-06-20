@@ -50,20 +50,27 @@ fun SignUpScreen(
       }
     )
 
-    JelloTextRegular(text = "Username")
+    JelloTextRegular(
+      text = "Username",
+      modifier = Modifier.padding(16.dp)
+    )
 
     JelloEditText(
       value = "Username"
     )
 
-    JelloTextRegular(text = "E-mail")
+    JelloTextRegular(
+      text = "E-mail",
+      modifier = Modifier.padding(16.dp)
+    )
 
     JelloEditText(
       keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
     )
 
     JelloTextRegular(
-      text = "Password"
+      text = "Password",
+      modifier = Modifier.padding(16.dp)
     )
 
     JelloEditText(

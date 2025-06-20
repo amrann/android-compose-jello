@@ -74,6 +74,7 @@ fun HomeScreen() {
           )
           JelloTextRegular(
             text = "Cari barang Kamu disini",
+            modifier = Modifier.padding(16.dp),
             color = Color.White
           )
         }
@@ -152,8 +153,7 @@ fun ItemProductHomeList(items: List<ProductItem>) {
         JelloTextRegular(
           text = item.title,
           color = Color.Black,
-          modifier = Modifier
-            .padding(16.dp)
+          modifier = Modifier.padding(16.dp)
         )
         val annotatedString = buildAnnotatedString {
           withStyle(
