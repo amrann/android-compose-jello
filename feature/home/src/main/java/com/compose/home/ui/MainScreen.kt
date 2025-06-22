@@ -22,6 +22,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.compose.home.ui.account.AccountScreen
 import com.compose.home.ui.home.HomeScreen
 import com.compose.home.ui.order.OrderScreen
 import com.compose.home.ui.product.ProductScreen
@@ -102,7 +103,7 @@ fun NavigationGraph(navController: NavHostController, modifier: Modifier) {
     composable(BottomNavItem.Home.route) { HomeScreen() }
     composable(BottomNavItem.Product.route) { ProductScreen() }
     composable(BottomNavItem.Order.route) { OrderScreen() }
-    composable(BottomNavItem.Account.route) { }
+    composable(BottomNavItem.Account.route) { AccountScreen() }
   }
 }
 
