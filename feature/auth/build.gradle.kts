@@ -1,6 +1,8 @@
 plugins {
   alias(libs.plugins.android.library)
   alias(libs.plugins.kotlin.android)
+  alias(libs.plugins.hilt.android)
+  id("kotlin-kapt")
 }
 
 android {
@@ -38,6 +40,7 @@ android {
 dependencies {
   // Module
   implementation(project(":core:ui"))
+  implementation(project(":core:navigator"))
 
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -55,6 +58,14 @@ dependencies {
   androidTestImplementation(libs.androidx.espresso.core)
   debugImplementation(libs.ui.tooling)
 
-  // Dagger Hilt
+//  // Dagger Hilt
+  implementation(libs.hilt.android)
+  kapt(libs.hilt.android.compiler)
+  kapt(libs.androidx.hilt.compiler)
+  // Dagger Hilt Compose
   implementation(libs.androidx.hilt.navigation.compose)
+}
+
+kapt {
+  correctErrorTypes = true
 }

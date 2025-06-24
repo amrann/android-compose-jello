@@ -8,11 +8,13 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.compose.auth.MainActivity.Screen
@@ -27,8 +29,11 @@ import com.compose.ui.components.JelloTextWithClick
 
 @Composable
 fun SignInScreen(
-  navController: NavController = rememberNavController()
+  navController: NavController = rememberNavController(),
+  viewModel: SignInViewModel = hiltViewModel()
 ) {
+  val context = LocalContext.current
+
   Column(
     modifier = Modifier
       .fillMaxSize()
@@ -73,7 +78,7 @@ fun SignInScreen(
 
     JelloButtonPrimary(
       onClick = {
-        //
+        viewModel.onNavigateToHome(context)
       }
     )
 
